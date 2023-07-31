@@ -1,0 +1,29 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>460</x><y>170</y><w>210</w><h>140</h></coordinates><panel_attributes>ButtonModel
+--
+- _pin: int
+- _state: bool 
+- _last_state: bool
+- _note: int
++ Note: int
+--
+Button(pin:int, note: short)
+getButtonState(): int </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>370</y><w>210</w><h>140</h></coordinates><panel_attributes>DrumpadController
+--
+ButtonModel
+LEDView
+
+--
+Button(pin:int, note: short)
+getButtonState(): int </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>130</y><w>210</w><h>190</h></coordinates><panel_attributes>LEDView
+--
+- _pin: int[3]
+- _state: 
+- _note: int
+- _velocity: int
+--
+- turnOn()
+- turnOff()
++ getNote()
++ setState()
++ setVelocity()
++ update()</panel_attributes><additional_attributes></additional_attributes></element></diagram>
