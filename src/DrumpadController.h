@@ -6,13 +6,30 @@
 
 class DrumpadController: public IUpdatable{
 public:
-    DrumpadController(int r, int c);
-    
+    DrumpadController(int _r, int _c, unsigned long* _time);
     void update();
-private: 
-    ButtonModel* buttons;
-    LEDView* leds;
+private:
+
+    int btnPins[12] = { 0 };
+    int ledPins[3][12] = { 0 };
+
+    ButtonModel** buttons;
+    LEDView** leds;
+    unsigned long* time;
+
+    int r, c;
 
     void getCommand();
+    void sendCommand(ButtonModel* btn, int state);
 
+    void checkButtons();
 };
+/*
+
+ButtonModel (low, high) 
+-> ButtonStateClassifier (Push Hold None YET)
+-> DrumpadController (On Off)
+
+
+
+*/
