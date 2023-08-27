@@ -20,6 +20,7 @@ DrumpadController::DrumpadController(int _r, int _c, unsigned long* _time){
 static byte cmd[2] = {0};
 void DrumpadController::getCommand(){
     Serial.readBytes(cmd, 2);
+    
 }
 
 void DrumpadController::sendCommand(ButtonModel* btn, int state){
