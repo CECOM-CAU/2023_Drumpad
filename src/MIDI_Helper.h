@@ -9,14 +9,22 @@ namespace MIDI_Helper{
     
     enum MIDI_VALUE_TYPE{
         CMD,
+        STATUS = CMD,
         PARAM,
         NONE = -1
     };
+
+    bool validateStatus(byte& cmd, const byte target){
+        return validateCommand(cmd, target);
+    }
 
     bool validateCommand(byte& cmd, const byte target){
         return ((cmd ^ target) >> 4) == 0;
     }
 
+    byte getStatus(){
+        return getCommand();
+    }
     byte getCommand(){
         byte cmd;
         if(Serial.readBytes(&cmd, 1)){

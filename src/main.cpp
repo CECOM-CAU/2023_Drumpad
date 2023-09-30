@@ -11,11 +11,12 @@ void   setup() {
   Serial.begin(9600);
 
   t_ptr = &time;
+  controller = new DrumpadController(4, 4, t_ptr);
 }
 
 void loop() {
-  // if (NUMBER_BUTTONS   != 0) updateButtons();
-
+  time = millis();
+  controller->update();
 
 }
 

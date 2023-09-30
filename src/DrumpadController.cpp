@@ -18,9 +18,6 @@ DrumpadController::DrumpadController(int _r, int _c, unsigned long* _time){
     Serial.begin(9600);
 }
 
-
-// 0b 0000 0000 0000 0000
-
 void DrumpadController::getMIDICommand(){
     byte cmd = MIDI_Helper::getCommand();
     while(cmd == MIDI_Helper::GET_FAILED){
@@ -36,8 +33,6 @@ void DrumpadController::getMIDICommand(){
         param[0] = MIDI_Helper::getNextParam();
         param[1] = MIDI_Helper::getNextParam();
     }
-
-    
 }
 
 void DrumpadController::sendMIDICommand(ButtonModel* btn, int state){
